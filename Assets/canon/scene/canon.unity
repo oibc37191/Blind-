@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 174895564107150930, guid: 742ae35704ef33543880db7ba2571b59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.486984
+      value: -28.2
       objectReference: {fileID: 0}
     - target: {fileID: 174895564107150930, guid: 742ae35704ef33543880db7ba2571b59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -264,6 +264,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1071475298522694628, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422104421654446669, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: Sun_Light
+      value: 
+      objectReference: {fileID: 1471278652}
     - target: {fileID: 1422104421654446669, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
       propertyPath: Grow_Speed
       value: 1
@@ -308,6 +316,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5304974423693027388, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304974423693027388, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601379156652977121, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6949426179440267432, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
       propertyPath: m_Name
       value: Flower_pot
@@ -315,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 6949426179440267432, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
       propertyPath: m_TagString
       value: Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498983350535235606, guid: a12c6fe19c7e26e40b56d116d9d9cc87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

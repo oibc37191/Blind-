@@ -124,8 +124,9 @@ GameObject:
   - component: {fileID: 3522065108097364114}
   - component: {fileID: 9109008473694526770}
   - component: {fileID: 5611112941642756148}
-  m_Layer: 0
-  m_Name: petiole
+  - component: {fileID: 2307536318312405056}
+  m_Layer: 6
+  m_Name: Petiole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,8 +141,8 @@ Transform:
   m_GameObject: {fileID: 1098811057839689406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.85, y: 16.06, z: 3.33}
-  m_LocalScale: {x: 0.5, y: 1.5, z: 0.5}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5304974423693027388}
@@ -226,6 +227,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2307536318312405056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098811057839689406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1b73740f8ee4647b7c12281b9255cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Petiole
 --- !u!1 &1505370519543948487
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabf8c4ca85bc240bf9acf86834cee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StemGrow
+  Sun_Light: {fileID: 0}
   Grow_Speed: 0.5
   Max_Scale: 10
 --- !u!1 &6949426179440267432
@@ -404,7 +418,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -422,8 +436,9 @@ GameObject:
   - component: {fileID: 6032894796209154271}
   - component: {fileID: 312134113379536159}
   - component: {fileID: 2038371381068051262}
-  m_Layer: 0
-  m_Name: Sphere
+  - component: {fileID: 5892453144124593625}
+  m_Layer: 6
+  m_Name: Leaf Blade
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,8 +452,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7132416316225569785}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.6599994, y: 16.12, z: 3.33}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 9, y: 0.8, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,6 +537,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.000000059604645, y: -0.000015258789, z: 0.000000014901161}
+--- !u!114 &5892453144124593625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132416316225569785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49aa1816025597b489013a9e2a7e00de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spher
 --- !u!1 &7293875761951709734
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,8 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5304974423693027388}
-  - component: {fileID: 6601379156652977121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +574,7 @@ Transform:
   m_GameObject: {fileID: 7293875761951709734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -1.2, z: -0.33}
+  m_LocalPosition: {x: -0.7, y: 0.3, z: 0.04}
   m_LocalScale: {x: 0.2, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -556,18 +582,6 @@ Transform:
   - {fileID: 1071475298522694628}
   m_Father: {fileID: 11425999398486893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6601379156652977121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7293875761951709734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0b4751e12262c4aa28ea753481d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Leaf
 --- !u!1 &8705680631904004601
 GameObject:
   m_ObjectHideFlags: 0
