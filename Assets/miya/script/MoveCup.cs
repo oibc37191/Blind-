@@ -1,55 +1,83 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class MoveCup : MonoBehaviour
 {
-    public Transform player;
-
-    [Header("掴む距離")]
-    public float grabDistance = 2f;
-
     [Header("保持距離")]
-    public float holdDistance = 1.5f;
+    public float HoldDistance = 0.8f;
 
-    public float moveSpeed = 5f;
+    [Header("高さ補正")]
+    public float HeightOffset = -0.5f;
 
-    private bool grabbed = false;
+    private Rigidbody rb;
 
-    void Update()
+    private bool grabbed;
+    private bool IsGround;
+
+    private Transform holder;
+
+    void Start()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            float distance = Vector3.Distance(
-                player.position,
-                transform.position);
+        rb = GetComponent<Rigidbody>();
 
-            // 近い時だけ掴む
-            if (!grabbed && distance <= grabDistance)
-            {
-                grabbed = true;
-            }
-            // 掴んでいたら離す
-            else if (grabbed)
-            {
-                grabbed = false;
-            }
-        }
+        rb.isKinematic = true;
+
+        rb.constraints =
+            RigidbodyConstraints.FreezePositionZ |
+            RigidbodyConstraints.FreezeRotationX |
+            RigidbodyConstraints.FreezeRotationY |
+            RigidbodyConstraints.FreezeRotationZ;
     }
 
     void FixedUpdate()
     {
-        if (!grabbed) return;
+        if (!grabbed)
+            return;
+
+        if (holder == null)
+            return;
+
+        float dir = holder.eulerAngles.y > 90f &&holder.eulerAngles.y < 270f? 1f: -1f;
 
         Vector3 targetPos =
-            player.position +
-            player.forward * holdDistance;
+            new Vector3(holder.position.x + dir * HoldDistance,holder.position.y + HeightOffset,transform.position.z);
 
-        targetPos.y = transform.position.y;
+        transform.position = targetPos;
+    }
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPos,
-            moveSpeed * Time.fixedDeltaTime
-        );
+    public void SetGrabbed(bool value, Transform player)
+    {
+        grabbed = value;
+
+        if (value)
+        {
+            holder = player;
+            Debug.Log("コップを掴んだ");
+        }
+        else
+        {
+            holder = null;
+            Debug.Log("コップを離した");
+        }
+    }
+
+    public bool IsGrabbed()
+    {
+        return grabbed;
+    }
+
+    public bool IsGrounded()
+    {
+        return IsGround;
+    }
+
+    
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            IsGround = false;
+        }
     }
 }

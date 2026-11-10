@@ -8,6 +8,7 @@ TagManager:
   - Stem
   - Cord
   - Flower
+  - Cup
   layers:
   - Default
   - TransparentFX
