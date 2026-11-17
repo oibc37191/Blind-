@@ -26,7 +26,10 @@ public class Petiole : MonoBehaviour
             float newScale_z = transform.localScale.z + Scale_Speed_XZ * Time.deltaTime;
 
             transform.localScale = new Vector3(newScale_x, newScale_y, newScale_z);
-            
+
+            float newPosition = transform.localPosition.x - Scale_Speed_Y * Time.deltaTime;
+
+            transform.localPosition = new Vector3(newPosition, 0f, 0f);
 
             //Debug.Log("葉柄");
         }

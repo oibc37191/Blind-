@@ -4,10 +4,16 @@ using UnityEngine;
 public class LeafBlade : MonoBehaviour
 {
     private float Scale_Speed = 3f;
+
+    [Header("葉の厚さ")]
+    public float ScaleY = 1f;
+
+    StemGrow steam;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        steam = GetComponentInParent<StemGrow>(); //親取得
     }
 
     // Update is called once per frame
@@ -17,11 +23,12 @@ public class LeafBlade : MonoBehaviour
         {
             float newScale_x = transform.localScale.x + Scale_Speed * Time.deltaTime;
             float newScale_z = transform.localScale.z + Scale_Speed * Time.deltaTime;
+            ScaleY /= steam.transform.localScale.y;
 
             //大きくなるにつれて場所も移動する
             float newPositionX = transform.localPosition.x - Scale_Speed * Time.deltaTime;
 
-            transform.localScale = new Vector3(newScale_x, 0.1f, newScale_z);
+            transform.localScale = new Vector3(newScale_x, ScaleY, newScale_z);
             transform.localPosition = new Vector3(newPositionX, 0f, 0f);
             //Debug.Log("葉");
         }

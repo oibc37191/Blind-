@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StemGrow
   Sun_Light: {fileID: 0}
+  Blind: {fileID: 0}
   Grow_Speed: 0.5
   Max_Scale: 10
 --- !u!1 &6949426179440267432
@@ -454,7 +455,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 0.8, z: 6}
+  m_LocalScale: {x: 9, y: 2.7, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5304974423693027388}
@@ -549,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa1816025597b489013a9e2a7e00de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spher
+  ScaleY: 2.7
 --- !u!1 &7293875761951709734
 GameObject:
   m_ObjectHideFlags: 0
