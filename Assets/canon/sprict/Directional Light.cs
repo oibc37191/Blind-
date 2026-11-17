@@ -11,7 +11,13 @@ public class DirectionalLight : MonoBehaviour
         //物体から放つRayの場所たち
         Vector3[] position = { target.position,
                                target.position + target.up,
-                               target.position - target.up};
+                               target.position + target.up * 2.5f,
+                               target.position + target.up * 4,
+                               target.position + target.up * 8,
+                               target.position - target.up,
+                               target.position - target.up * 2.5f,
+                               target.position - target.up * 4,
+                               target.position - target.up * 8 };
         
         //6ビットに値するのレイヤーは遮蔽物としない
         int layerMask = 1 << 6;

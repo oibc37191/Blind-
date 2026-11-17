@@ -21,14 +21,17 @@ public class Move_Blind_Slat : MonoBehaviour
                 IsMaxAngle = true;
                 //Debug.Log("MaxAngle");
             }
-            else if (angle == MinAngle)
+            else if (angle == MinAngle && !StemGrow.Is_Min_Scale)
             {
+                IsMaxAngle = false;
                 StemGrow.Shrink_Sw = true;
                 //Debug.Log("角度は０です");
             }
             else
             {
+                IsMaxAngle = false;
                 StemGrow.Shrink_Sw = false;
+                //Debug.Log("NoAngle");
             }
         }
     }

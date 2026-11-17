@@ -20,6 +20,7 @@ public class StemGrow : MonoBehaviour
     static public bool Shrink_Sw = false; //縮み始めのスイッチ
 
     private bool Is_Max_Scale = false;
+    static public bool Is_Min_Scale = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +33,8 @@ public class StemGrow : MonoBehaviour
 
         Grow_Sw = false;
         Shrink_Sw = false;
+        Is_Max_Scale = false;
+        Is_Min_Scale = false;
     }
 
     // Update is called once per frame
@@ -56,11 +59,17 @@ public class StemGrow : MonoBehaviour
             Is_Max_Scale = false;
         }
 
+        if(transform.localScale.y > Min_Scale)
+        {
+            Is_Min_Scale = false;
+        }
+
         //太陽までRayが届いたら、かつブラインドの角度がマックスになったら、かつ最大大きさになるまでtrueが返される   
         Grow_Sw = Sun_Light.Is_Hit_Light(transform) && Blind.GetMaxAngle() && !Is_Max_Scale;
 
-        Debug.Log("伸びるかどうか" + Grow_Sw);
-        Debug.Log("縮むかどうか" + Shrink_Sw);
+        //Debug.Log("伸びるかどうか" + Grow_Sw);
+        //Debug.Log("縮むかどうか" + Shrink_Sw);
+        //Debug.Log("Min" + Is_Min_Scale);
 
         //伸びる処理
         if (Grow_Sw)
@@ -94,6 +103,8 @@ public class StemGrow : MonoBehaviour
         {
             if(transform.localScale.y > Min_Scale)
             {
+                Is_Min_Scale = false;
+
                 //どんどん小さく
                 float newScale = transform.localScale.y - Grow_Speed * Time.deltaTime;
                 float newPosition = transform.localPosition.y - Grow_Speed * Time.deltaTime;
@@ -105,7 +116,11 @@ public class StemGrow : MonoBehaviour
 
                 //中心点（position）を徐々に下に
                 transform.localPosition = new Vector3(0f, newPosition, 0f);
-
+            }
+            else
+            {
+                Shrink_Sw = false;
+                Is_Min_Scale = true;
             }
         }
     }
