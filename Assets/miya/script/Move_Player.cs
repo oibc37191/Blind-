@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 using UnityEngine.InputSystem;
 
 public class Move_Player : MonoBehaviour
@@ -52,6 +53,14 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
+        // コップが落下などで解除された場合
+        if (IsPushMode &&
+            currentCup != null &&
+            !currentCup.IsGrabbed())
+        {
+            ReleaseCup();
+        }
+
         //--------------------------------
         // Eキーで掴む・離す
         //--------------------------------
@@ -159,6 +168,8 @@ public class Move_Player : MonoBehaviour
 
     void FixedUpdate()
     {
+           
+       
         //--------------------------------
         // 茎登り
         //--------------------------------
