@@ -108,4 +108,16 @@ public class MoveCup : MonoBehaviour
     {
         return grabbed;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        Debug.Log("Hit : " + other.name);
+
+        if (other.CompareTag("Goal"))
+        {
+            Debug.Log("Goal!");
+
+            GameManager.Instance.ClearGame();
+        }
+}
 }

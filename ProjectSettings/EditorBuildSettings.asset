@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/miya/scene/Stage1.unity
+    guid: 522ceb3eff7f91f4dbf36f63f6f36edb
+  - enabled: 1
+    path: Assets/miya/scene/GoalScene.unity
+    guid: 944014a9442742b49bb1e40fdee15293
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}

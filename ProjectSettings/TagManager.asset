@@ -9,6 +9,7 @@ TagManager:
   - Cord
   - Flower
   - Cup
+  - Goal
   layers:
   - Default
   - TransparentFX

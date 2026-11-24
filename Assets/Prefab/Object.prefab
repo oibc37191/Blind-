@@ -233,6 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7607163712975717341}
+  - component: {fileID: 3049201764311650452}
   m_Layer: 0
   m_Name: Flower_pot_goal
   m_TagString: Untagged
@@ -257,6 +258,18 @@ Transform:
   - {fileID: 2580165668708223941}
   m_Father: {fileID: 7739505697845127343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3049201764311650452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860152204368068651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3278bf7e4499896459ab402275366c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Goal
 --- !u!1 &8256267972217212055
 GameObject:
   m_ObjectHideFlags: 0
