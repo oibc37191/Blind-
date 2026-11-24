@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Move_Player
   PlayerID: 2
-  Move_Speed: 10
+  Move_Speed: 25
   PushSpeed: 2
   PushModeDistance: 1.5
   JumpPower: 25
