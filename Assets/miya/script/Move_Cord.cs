@@ -9,25 +9,55 @@ public class Move_Cord : MonoBehaviour
     public float pullSpeed = 50f;
     public float maxPull = 80f;
 
-    private bool playerInRange = false;
+    private bool playerInRange;
 
-    void Update()
+    private void Update()
     {
-        // プレイヤーが近くにいる時だけE入力を受け付ける
-        if (playerInRange)
+        if (!playerInRange)
+            return;
+
+        // Eで閉じる→持ち上げる
+        if (Keyboard.current.eKey.isPressed)
         {
-            if (Keyboard.current.eKey.isPressed)
+            if (!blind.GetMaxAngle())
             {
-                pullAmount += pullSpeed * Time.deltaTime;
+                pullAmount +=
+                    pullSpeed * Time.deltaTime;
+
+                pullAmount =
+                    Mathf.Clamp(
+                        pullAmount,
+                        0f,
+                        maxPull);
+
+                blind.SetAngle(pullAmount);
             }
-            else if(Keyboard.current.rKey.isPressed)
+            else
             {
-                pullAmount -= pullSpeed * Time.deltaTime;
+                blind.Raise();
             }
+        }
 
-            pullAmount = Mathf.Clamp(pullAmount, 0f, maxPull);
+        // Rで下げる→開く
+        if (Keyboard.current.rKey.isPressed)
+        {
+            if (!blind.IsUnfolded())
+            {
+                blind.Lower();
+            }
+            else
+            {
+                pullAmount -=
+                    pullSpeed * Time.deltaTime;
 
-            blind.SetAngle(pullAmount);
+                pullAmount =
+                    Mathf.Clamp(
+                        pullAmount,
+                        0f,
+                        maxPull);
+
+                blind.SetAngle(pullAmount);
+            }
         }
     }
 
