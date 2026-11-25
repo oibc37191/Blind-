@@ -41,18 +41,41 @@ public class Move_Blind_Slat : MonoBehaviour
     //--------------------------------------------------
     // 角度
     //--------------------------------------------------
+
     public void SetAngle(float angle)
     {
-        angle = Mathf.Clamp(angle, MinAngle, MaxAngle);
+        angle = Mathf.Clamp(angle, 0f, MaxAngle);
 
         foreach (Transform slat in Slats)
         {
-            slat.localRotation =
-                Quaternion.Euler(angle, 0f, 0f);
-        }
+            slat.localRotation = Quaternion.Euler(angle, 0, 0);
 
-        IsMaxAngle =
-            Mathf.Approximately(angle, MaxAngle);
+            if (angle == MaxAngle)
+            {
+
+                IsMaxAngle = true;
+
+                //Debug.Log("MaxAngle");
+            }
+            else if (angle == MinAngle && !StemGrow.Is_Min_Scale)
+            {
+
+                IsMaxAngle = false;
+
+                StemGrow.Shrink_Sw = true;
+
+                //Debug.Log("角度は０です");
+            }
+            else
+            {
+
+                IsMaxAngle = false;
+
+                StemGrow.Shrink_Sw = false;
+
+                //Debug.Log("NoAngle");
+            }
+        }
     }
 
     //--------------------------------------------------
